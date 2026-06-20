@@ -24,7 +24,7 @@ const ModelStats = () => {
 
   return (
     <div className="layout">
-      <main className="main-content" style={{ marginLeft: 0, width: '100%' }}>
+      <main className="main-content no-sidebar">
         <div className="page-container" style={{ maxWidth: '1200px', margin: '0 auto' }}>
           
           <div style={styles.header}>
@@ -35,7 +35,7 @@ const ModelStats = () => {
           {/* Section 1: Comparison Table */}
           <div className="card" style={{ marginBottom: '24px' }}>
             <h3 style={styles.cardTitle}>Model Comparison</h3>
-            <div style={{ overflowX: 'auto' }}>
+            <div className="table-responsive">
               <table style={styles.table}>
                 <thead>
                   <tr>
@@ -87,7 +87,7 @@ const ModelStats = () => {
 
           {/* Section 2: Charts */}
           <div className="row">
-            <div className="col-60" style={{ flex: 1 }}>
+            <div className="col-60">
               <div className="card" style={{ height: '100%' }}>
                 <h3 style={styles.cardTitle}>ROC Curve</h3>
                 <div style={{ height: '300px' }}>
@@ -106,7 +106,7 @@ const ModelStats = () => {
               </div>
             </div>
             
-            <div className="col-40" style={{ flex: 1 }}>
+            <div className="col-40">
               <div className="card" style={{ height: '100%' }}>
                 <h3 style={styles.cardTitle}>Precision-Recall Curve</h3>
                 <div style={{ height: '300px' }}>
@@ -127,7 +127,7 @@ const ModelStats = () => {
 
           {/* Section 3: Why XGBoost & Confusion Matrix */}
           <div className="row">
-            <div className="col-60" style={{ flex: 1 }}>
+            <div className="col-60">
               <div className="card" style={{ height: '100%' }}>
                 <h3 style={styles.cardTitle}>Why XGBoost?</h3>
                 <ul style={styles.list}>
@@ -147,30 +147,30 @@ const ModelStats = () => {
               </div>
             </div>
 
-            <div className="col-40" style={{ flex: 1 }}>
+            <div className="col-40">
               <div className="card" style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
                 <h3 style={styles.cardTitle}>Confusion Matrix (Test Set)</h3>
                 
-                <div style={styles.cmContainer}>
-                  <div style={styles.cmLabelTop}>Predicted</div>
-                  <div style={styles.cmLabelLeft}>Actual</div>
+                <div className="cm-container">
+                  <div className="cm-label-top">Predicted</div>
+                  <div className="cm-label-left">Actual</div>
                   
-                  <div style={styles.cmGrid}>
-                    <div style={{ ...styles.cmBox, backgroundColor: 'var(--success-light)' }}>
-                      <div style={styles.cmValue}>56,864</div>
-                      <div style={styles.cmName}>True Negative</div>
+                  <div className="cm-grid">
+                    <div className="cm-box" style={{ backgroundColor: 'var(--success-light)' }}>
+                      <div className="cm-value">56,864</div>
+                      <div className="cm-name">True Negative</div>
                     </div>
-                    <div style={{ ...styles.cmBox, backgroundColor: 'var(--warning-light)' }}>
-                      <div style={styles.cmValue}>12</div>
-                      <div style={styles.cmName}>False Positive</div>
+                    <div className="cm-box" style={{ backgroundColor: 'var(--warning-light)' }}>
+                      <div className="cm-value">12</div>
+                      <div className="cm-name">False Positive</div>
                     </div>
-                    <div style={{ ...styles.cmBox, backgroundColor: 'var(--danger-light)' }}>
-                      <div style={styles.cmValue}>6</div>
-                      <div style={styles.cmName}>False Negative</div>
+                    <div className="cm-box" style={{ backgroundColor: 'var(--danger-light)' }}>
+                      <div className="cm-value">6</div>
+                      <div className="cm-name">False Negative</div>
                     </div>
-                    <div style={{ ...styles.cmBox, backgroundColor: 'var(--success-light)', border: '2px solid var(--success)' }}>
-                      <div style={styles.cmValue}>80</div>
-                      <div style={styles.cmName}>True Positive</div>
+                    <div className="cm-box" style={{ backgroundColor: 'var(--success-light)', border: '2px solid var(--success)' }}>
+                      <div className="cm-value">80</div>
+                      <div className="cm-name">True Positive</div>
                     </div>
                   </div>
                 </div>
@@ -236,57 +236,6 @@ const styles = {
     fontSize: '14px',
     lineHeight: '1.6',
     color: 'var(--text-secondary)',
-  },
-  cmContainer: {
-    position: 'relative',
-    padding: '20px 0 0 30px',
-    flexGrow: 1,
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  cmLabelTop: {
-    position: 'absolute',
-    top: 0,
-    left: '50%',
-    transform: 'translateX(-50%)',
-    fontSize: '12px',
-    fontWeight: 600,
-    color: 'var(--text-secondary)',
-  },
-  cmLabelLeft: {
-    position: 'absolute',
-    top: '50%',
-    left: -10,
-    transform: 'translateY(-50%) rotate(-90deg)',
-    fontSize: '12px',
-    fontWeight: 600,
-    color: 'var(--text-secondary)',
-  },
-  cmGrid: {
-    display: 'grid',
-    gridTemplateColumns: '1fr 1fr',
-    gap: '8px',
-    width: '100%',
-    height: '100%',
-  },
-  cmBox: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: '24px',
-    borderRadius: '8px',
-  },
-  cmValue: {
-    fontSize: '24px',
-    fontWeight: 600,
-    color: 'var(--text-primary)',
-  },
-  cmName: {
-    fontSize: '12px',
-    color: 'var(--text-secondary)',
-    marginTop: '4px',
   }
 };
 

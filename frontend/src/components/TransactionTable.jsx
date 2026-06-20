@@ -21,7 +21,7 @@ const TransactionTable = ({ history, clearHistory }) => {
         </button>
       </div>
 
-      <div style={styles.tableWrapper}>
+      <div className="table-responsive">
         <table style={styles.table}>
           <thead>
             <tr>
@@ -104,9 +104,6 @@ const styles = {
     width: 'auto',
     fontSize: '13px',
     padding: '6px 12px',
-  },
-  tableWrapper: {
-    overflowX: 'auto',
   },
   table: {
     width: '100%',

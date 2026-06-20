@@ -316,7 +316,7 @@ const BatchUpload = () => {
 
   return (
     <div className="layout">
-      <main className="main-content" style={{ marginLeft: 0, width: '100%' }}>
+      <main className="main-content no-sidebar">
         <div className="page-container" style={{ maxWidth: '1200px', margin: '0 auto' }}>
           
           <div style={styles.header}>
@@ -436,7 +436,7 @@ const BatchUpload = () => {
           ) : (
             <div className="fade-in">
               {/* Results metrics overview */}
-              <div style={styles.metricsRow}>
+              <div className="stats-grid">
                 <div className="card" style={styles.metricCard}>
                   <div style={styles.metricHeader}>
                     <span style={styles.metricLabel}>Total Scanned</span>
@@ -476,7 +476,7 @@ const BatchUpload = () => {
 
               {/* Charts visualization */}
               <div className="row">
-                <div className="col-60" style={{ flex: '1.2' }}>
+                <div className="col-60 col-grow-12">
                   <div className="card" style={{ height: '360px' }}>
                     <h3 style={styles.cardTitle}>Transaction Risk Level Distribution</h3>
                     <div style={{ height: '260px' }}>
@@ -500,7 +500,7 @@ const BatchUpload = () => {
                   </div>
                 </div>
 
-                <div className="col-40" style={{ flex: '0.8' }}>
+                <div className="col-40 col-grow-08">
                   <div className="card" style={{ height: '360px' }}>
                     <h3 style={styles.cardTitle}>Proportion Ledger Breakdown</h3>
                     <div style={{ height: '260px', position: 'relative' }}>
@@ -605,7 +605,7 @@ const BatchUpload = () => {
                 </div>
 
                 {/* Output Table */}
-                <div style={{ overflowX: 'auto' }}>
+                <div className="table-responsive">
                   <table style={styles.table}>
                     <thead>
                       <tr>

@@ -140,7 +140,7 @@ const LiveMonitor = () => {
 
   return (
     <div className="layout">
-      <main className="main-content" style={{ marginLeft: 0, width: '100%' }}>
+      <main className="main-content no-sidebar">
         <div className="page-container" style={{ maxWidth: '1200px', margin: '0 auto' }}>
           
           <div style={styles.header}>
@@ -154,10 +154,10 @@ const LiveMonitor = () => {
           {/* Controller and Running Ticker */}
           <div className="row">
             {/* Left side: Stream Stats & Line Ticker */}
-            <div className="col-60" style={{ flex: '1.3', display: 'flex', flexDirection: 'column', gap: '24px' }}>
+            <div className="col-60 col-grow-13" style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
               
               {/* Stats overview cards */}
-              <div style={styles.miniStatsRow}>
+              <div className="stats-grid">
                 <div className="card" style={styles.miniCard}>
                   <div style={styles.cardHeader}>
                     <Database size={16} color="var(--primary)" />
@@ -262,7 +262,7 @@ const LiveMonitor = () => {
             </div>
 
             {/* Right side: Real-time Ingestion Feed Log list */}
-            <div className="col-40" style={{ flex: '0.7', display: 'flex', flexDirection: 'column', height: '540px' }}>
+            <div className="col-40 col-grow-07" style={{ display: 'flex', flexDirection: 'column', height: '540px' }}>
               <div className="card" style={{ flexGrow: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden', paddingBottom: '16px' }}>
                 <h3 style={styles.cardTitle}>Ingestion Queue Live Feed</h3>
                 <div style={styles.feedScroll}>
@@ -316,7 +316,7 @@ const LiveMonitor = () => {
 
               <div className="row" style={{ marginTop: '16px' }}>
                 {/* Feature Grid */}
-                <div className="col-60" style={{ flex: 1.2 }}>
+                <div className="col-60 col-grow-12">
                   <h4 style={styles.sectionHeading}>Transaction Properties</h4>
                   <div style={styles.featureGrid}>
                     <div style={styles.gridBox}>
@@ -338,7 +338,7 @@ const LiveMonitor = () => {
                 </div>
 
                 {/* Model Prediction Details */}
-                <div className="col-40" style={{ flex: 0.8 }}>
+                <div className="col-40 col-grow-08">
                   <h4 style={styles.sectionHeading}>Inference Metrics</h4>
                   <div style={styles.metricsBox}>
                     <div style={styles.metricRowDetail}>
@@ -385,11 +385,6 @@ const styles = {
   subtitle: {
     fontSize: '15px',
     color: 'var(--text-secondary)',
-  },
-  miniStatsRow: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(4, 1fr)',
-    gap: '16px',
   },
   miniCard: {
     padding: '16px',
